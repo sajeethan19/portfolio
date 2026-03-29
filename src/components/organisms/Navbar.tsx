@@ -9,7 +9,7 @@ export function Navbar({ navItems, onThemeToggle }: NavbarProps) {
   return (
     <nav>
       <a href="#hero" className="nav-logo">
-        GS.dev
+        Sajeethan G.
       </a>
       <ul className="nav-links">
         {navItems.map((item) => (
