@@ -40,7 +40,7 @@ export function HeroSection({ socialLinks }: { socialLinks: SocialLink[] }) {
           <div className="photo-inner">
             <ProfileIllustration />
           </div>
-          <div className="photo-badge">SWE | MSc CS</div>
+          <div className="photo-badge">Software Engineer | MSc CS</div>
         </div>
       </div>
     </section>
