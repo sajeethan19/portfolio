@@ -2,7 +2,8 @@
 const isGithubActions = process.env.GITHUB_ACTIONS === "true";
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 const isUserOrOrgSite = repositoryName.endsWith(".github.io");
-const basePath = isGithubActions && !isUserOrOrgSite ? `/${repositoryName}` : "";
+const hasCustomDomain = process.env.CUSTOM_DOMAIN === "true";
+const basePath = isGithubActions && !isUserOrOrgSite && !hasCustomDomain ? `/${repositoryName}` : "";
 
 const nextConfig = {
   reactStrictMode: true,

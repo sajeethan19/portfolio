@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CUSTOM_DOMAIN: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,6 +35,9 @@ jobs:
 
       - name: Build static site
         run: npm run build
+
+      - name: Add CNAME
+        run: echo "sajeethan.website" > out/CNAME
 
       - name: Add nojekyll
         run: touch out/.nojekyll
