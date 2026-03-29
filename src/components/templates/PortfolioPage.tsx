@@ -59,6 +59,7 @@ export function PortfolioPage() {
 
     if (!prefersReducedMotion) {
       gsapContext = gsap.context(() => {
+        // About transition
         const transitionTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: ".about-transition-scroll",
@@ -122,34 +123,279 @@ export function PortfolioPage() {
         const aboutContentTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: "#about",
-            start: "top 100%",
-            end: "top 0%",
+            start: "top 80%",
+            end: "top 20%",
             scrub: 1,
-            markers: true,
             invalidateOnRefresh: true
           }
         });
 
         aboutContentTimeline
-          .fromTo(
+          .to(
             ".about-content-left",
-            { x: '-100%', autoAlpha: 0 },
-            { x: 0, autoAlpha: 1, duration: 2.8, ease: "power3.out" }
+            { x: 0, autoAlpha: 1, duration: 1, ease: "power3.out" },
+            0
+          )
+          .to(
+            ".about-content-right",
+            { x: 0, autoAlpha: 1, duration: 1, ease: "power3.out" },
+            0
+          );
+
+        // Skills transition
+        const skillsTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".skills-transition-scroll",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        });
+
+        skillsTimeline
+          .fromTo(
+            ".skills-transition-green",
+            { scaleY: 0.14, autoAlpha: 0.7 },
+            { scaleY: 1, autoAlpha: 1, duration: 0.6, ease: "none" }
           )
           .fromTo(
-            ".about-content-right",
-            { x: '100%', autoAlpha: 0 },
-            { x: 0, autoAlpha: 1, duration: 2.8, ease: "power3.out" },
+            ".skills-intro-heading",
+            { xPercent: -100, autoAlpha: 0 },
+            { xPercent: 0, autoAlpha: 1, duration: 1.25, ease: "power3.out" },
+            ">-0.05"
+          )
+          .fromTo(
+            ".skills-intro-guide",
+            { y: 24, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" },
+            "<0.18"
+          )
+          .to(
+            ".skills-intro-heading",
+            { autoAlpha: 1, duration: 1.2, ease: "none" },
+            ">"
+          )
+          .fromTo(
+            ".skills-transition-black-focus",
+            { autoAlpha: 0, scale: 0.05 },
+            { autoAlpha: 1, scale: 20, duration: 2.15, ease: "power3.in" },
+            ">+0.05"
+          )
+          .to(
+            ".skills-intro-heading",
+            { scale: 2.6, autoAlpha: 0.05, transformOrigin: "50% 50%", duration: 1, ease: "power2.in" },
             "<"
+          )
+          .to(
+            ".skills-intro-guide",
+            { autoAlpha: 0, y: -10, duration: 0.45, ease: "power2.in" },
+            "<0.12"
+          )
+          .to(
+            ".skills-transition-black",
+            { autoAlpha: 1, duration: 0.5, ease: "none" },
+            "<0.25"
+          )
+          .to(
+            ".skills-transition-inner",
+            { autoAlpha: 0, duration: 0.35, ease: "power1.out" },
+            ">-0.12"
+          );
+
+        // Experience transition
+        const experienceTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".experience-transition-scroll",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        });
+
+        experienceTimeline
+          .fromTo(
+            ".experience-transition-green",
+            { scaleY: 0.14, autoAlpha: 0.7 },
+            { scaleY: 1, autoAlpha: 1, duration: 0.6, ease: "none" }
+          )
+          .fromTo(
+            ".experience-intro-heading",
+            { xPercent: -100, autoAlpha: 0 },
+            { xPercent: 0, autoAlpha: 1, duration: 1.25, ease: "power3.out" },
+            ">-0.05"
+          )
+          .fromTo(
+            ".experience-intro-guide",
+            { y: 24, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" },
+            "<0.18"
+          )
+          .to(
+            ".experience-intro-heading",
+            { autoAlpha: 1, duration: 1.2, ease: "none" },
+            ">"
+          )
+          .fromTo(
+            ".experience-transition-black-focus",
+            { autoAlpha: 0, scale: 0.05 },
+            { autoAlpha: 1, scale: 20, duration: 2.15, ease: "power3.in" },
+            ">+0.05"
+          )
+          .to(
+            ".experience-intro-heading",
+            { scale: 2.6, autoAlpha: 0.05, transformOrigin: "50% 50%", duration: 1, ease: "power2.in" },
+            "<"
+          )
+          .to(
+            ".experience-intro-guide",
+            { autoAlpha: 0, y: -10, duration: 0.45, ease: "power2.in" },
+            "<0.12"
+          )
+          .to(
+            ".experience-transition-black",
+            { autoAlpha: 1, duration: 0.5, ease: "none" },
+            "<0.25"
+          )
+          .to(
+            ".experience-transition-inner",
+            { autoAlpha: 0, duration: 0.35, ease: "power1.out" },
+            ">-0.12"
+          );
+
+        // Projects transition
+        const projectsTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".projects-transition-scroll",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        });
+
+        projectsTimeline
+          .fromTo(
+            ".projects-transition-green",
+            { scaleY: 0.14, autoAlpha: 0.7 },
+            { scaleY: 1, autoAlpha: 1, duration: 0.6, ease: "none" }
+          )
+          .fromTo(
+            ".projects-intro-heading",
+            { xPercent: -100, autoAlpha: 0 },
+            { xPercent: 0, autoAlpha: 1, duration: 1.25, ease: "power3.out" },
+            ">-0.05"
+          )
+          .fromTo(
+            ".projects-intro-guide",
+            { y: 24, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" },
+            "<0.18"
+          )
+          .to(
+            ".projects-intro-heading",
+            { autoAlpha: 1, duration: 1.2, ease: "none" },
+            ">"
+          )
+          .fromTo(
+            ".projects-transition-black-focus",
+            { autoAlpha: 0, scale: 0.05 },
+            { autoAlpha: 1, scale: 20, duration: 2.15, ease: "power3.in" },
+            ">+0.05"
+          )
+          .to(
+            ".projects-intro-heading",
+            { scale: 2.6, autoAlpha: 0.05, transformOrigin: "50% 50%", duration: 1, ease: "power2.in" },
+            "<"
+          )
+          .to(
+            ".projects-intro-guide",
+            { autoAlpha: 0, y: -10, duration: 0.45, ease: "power2.in" },
+            "<0.12"
+          )
+          .to(
+            ".projects-transition-black",
+            { autoAlpha: 1, duration: 0.5, ease: "none" },
+            "<0.25"
+          )
+          .to(
+            ".projects-transition-inner",
+            { autoAlpha: 0, duration: 0.35, ease: "power1.out" },
+            ">-0.12"
+          );
+
+        // Contact transition
+        const contactTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".contact-transition-scroll",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1.05,
+            invalidateOnRefresh: true
+          }
+        });
+
+        contactTimeline
+          .fromTo(
+            ".contact-transition-green",
+            { scaleY: 0.14, autoAlpha: 0.7 },
+            { scaleY: 1, autoAlpha: 1, duration: 0.6, ease: "none" }
+          )
+          .fromTo(
+            ".contact-intro-heading",
+            { xPercent: -100, autoAlpha: 0 },
+            { xPercent: 0, autoAlpha: 1, duration: 1.25, ease: "power3.out" },
+            ">-0.05"
+          )
+          .fromTo(
+            ".contact-intro-guide",
+            { y: 24, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" },
+            "<0.18"
+          )
+          .to(
+            ".contact-intro-heading",
+            { autoAlpha: 1, duration: 1.2, ease: "none" },
+            ">"
+          )
+          .fromTo(
+            ".contact-transition-black-focus",
+            { autoAlpha: 0, scale: 0.05 },
+            { autoAlpha: 1, scale: 20, duration: 2.15, ease: "power3.in" },
+            ">+0.05"
+          )
+          .to(
+            ".contact-intro-heading",
+            { scale: 2.6, autoAlpha: 0.05, transformOrigin: "50% 50%", duration: 1, ease: "power2.in" },
+            "<"
+          )
+          .to(
+            ".contact-intro-guide",
+            { autoAlpha: 0, y: -10, duration: 0.45, ease: "power2.in" },
+            "<0.12"
+          )
+          .to(
+            ".contact-transition-black",
+            { autoAlpha: 1, duration: 0.5, ease: "none" },
+            "<0.25"
+          )
+          .to(
+            ".contact-transition-inner",
+            { autoAlpha: 0, duration: 0.35, ease: "power1.out" },
+            ">-0.12"
           );
       });
     } else {
-      const transitionSection = document.querySelector<HTMLElement>(".about-transition-scroll");
-      if (transitionSection) {
-        transitionSection.style.display = "none";
-      }
+      document.querySelectorAll<HTMLElement>(
+        ".about-transition-scroll, .skills-transition-scroll, .experience-transition-scroll, .projects-transition-scroll, .contact-transition-scroll"
+      ).forEach((section) => {
+        section.style.display = "none";
+      });
 
-      document.querySelectorAll<HTMLElement>(".about-content-left, .about-content-right").forEach((element) => {
+      document.querySelectorAll<HTMLElement>(
+        ".about-content-left, .about-content-right"
+      ).forEach((element) => {
         element.style.opacity = "1";
         element.style.transform = "none";
       });
