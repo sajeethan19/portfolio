@@ -243,7 +243,11 @@ section {
   animation: fadeUp 0.6s 0.35s forwards;
 }
 
-.hero-name span {
+
+.hero-name .surname{
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+.hero-name .firstname {
   color: var(--accent);
 }
 

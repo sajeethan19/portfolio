@@ -11,9 +11,9 @@ export function HeroSection({ socialLinks }: { socialLinks: SocialLink[] }) {
       <div className="hero-left">
         <div className="hero-tag">Available for opportunities</div>
         <h1 className="hero-name">
-          Sajeethan
+          <span className="surname">Gulendran</span>
           <br />
-          <span>Gulendran</span>
+          <span className="firstname">Sajeethan</span>
         </h1>
         <p className="hero-subtitle">
           <em>Software Engineer</em> | Full Stack | <em>MSc CS</em> @ UoM
