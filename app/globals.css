@@ -234,7 +234,7 @@ section {
 }
 
 .hero-name {
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 6vw, 5.5rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -245,7 +245,7 @@ section {
 
 
 .hero-name .surname{
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
 }
 .hero-name .firstname {
   color: var(--accent);
