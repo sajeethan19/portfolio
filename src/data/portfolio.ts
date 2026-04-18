@@ -149,7 +149,7 @@ export const education: EducationItem[] = [
     streamTone: "accent2"
   },
   {
-    year: "2015",
+    year: "2018",
     degree: "G.C.E A/L",
     stream: "Physics A | Maths A | Chemistry B",
     university: "J/Jaffna Central College, Jaffna",
